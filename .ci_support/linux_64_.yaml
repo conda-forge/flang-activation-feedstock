@@ -1,0 +1,19 @@
+CBUILD:
+- x86_64-conda-linux-gnu
+CHOST:
+- x86_64-conda-linux-gnu
+cdt_name:
+- cos7
+channel_sources:
+- conda-forge/label/llvm_rc,conda-forge
+channel_targets:
+- conda-forge llvm_rc
+cross_target_platform:
+- linux-64
+docker_image:
+- quay.io/condaforge/linux-anvil-cos7-x86_64
+target_platform:
+- linux-64
+zip_keys:
+- - CHOST
+  - cross_target_platform
