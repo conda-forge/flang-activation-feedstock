@@ -1,4 +1,4 @@
-{% set version = "19.1.0" %}
+{% set version = "19.1.1" %}
 
 package:
   name: flang-activation
