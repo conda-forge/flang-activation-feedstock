@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 build:
-  number: 4
+  number: 5
   # intentionally only windows (main target) & linux (debuggability)
   skip: true  # [osx]
 

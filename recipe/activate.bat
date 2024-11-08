@@ -17,7 +17,7 @@ set "LDFLAGS=%LDFLAGS% -Wl,-defaultlib:%CONDA_PREFIX:\=/%/lib/clang/@MAJOR_VER@/
 :: LIBRARY_INC is not available if not, but we cannot use CONDA_PREFIX unconditionally either,
 :: as that points to the wrong environment (build instead of host) when using conda-build.
 if not "%CONDA_BUILD%" == "" (
-    set "FFLAGS=%FFLAGS" -I%LIBRARY_INC%"
+    set "FFLAGS=%FFLAGS% -I%LIBRARY_INC%"
 ) else (
-    set "FFLAGS=%FFLAGS" -I%CONDA_PREFIX%\Library\include"
+    set "FFLAGS=%FFLAGS% -I%CONDA_PREFIX%\Library\include"
 )
