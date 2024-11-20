@@ -6,8 +6,8 @@ package:
 
 # unused, but helpful so the bot creates updates automatically
 source:
-  url: https://github.com/llvm/llvm-project/archive/refs/tags/llvmorg-{{ version.replace(".rc", "-rc") }}.tar.gz
-  sha256: 010e1fd3cabee8799bd2f8a6fbc68f28207494f315cf9da7057a2820f79fd531
+  url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/sources.jsonl
+  sha256: ba1914327b64bd127af91d08e61eb457b689c50bbfa981e7759fc41c13a7cc23
 
 build:
   number: 0
