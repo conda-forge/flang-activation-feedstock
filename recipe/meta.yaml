@@ -1,4 +1,4 @@
-{% set version = "19.1.4" %}
+{% set version = "19.1.5" %}
 
 package:
   name: flang-activation
@@ -7,7 +7,7 @@ package:
 # unused, but helpful so the bot creates updates automatically
 source:
   url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/sources.jsonl
-  sha256: ba1914327b64bd127af91d08e61eb457b689c50bbfa981e7759fc41c13a7cc23
+  sha256: 882657b8bee18116b46b9f2a271aeb62d0bf2d7b055e10ffd3fe96afb6fa7337
 
 build:
   number: 0
