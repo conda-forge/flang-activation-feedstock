@@ -1,4 +1,4 @@
-{% set version = "19.1.5" %}
+{% set version = "19.1.6" %}
 
 package:
   name: flang-activation
@@ -7,7 +7,7 @@ package:
 # unused, but helpful so the bot creates updates automatically
 source:
   url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/sources.jsonl
-  sha256: 882657b8bee18116b46b9f2a271aeb62d0bf2d7b055e10ffd3fe96afb6fa7337
+  sha256: 808c0cbaae497517e9f6ecb15247faca790a96f74732f80b365774bd77dd3735
 
 build:
   number: 0
@@ -16,7 +16,7 @@ build:
 
 outputs:
   - name: flang_impl_{{ cross_target_platform }}
-    script: install_flang_impl.sh   # [unix]
+    script: install_flang_impl.sh  # [unix]
     # we don't cross-compile on windows -> no symlinks
     requirements:
       - flang ={{ version }}
@@ -30,10 +30,10 @@ outputs:
         - {{ CHOST }}-flang --version   # [unix]
 
   - name: flang_{{ cross_target_platform }}
-    script: install_flang.sh   # [unix]
+    script: install_flang.sh  # [unix]
     script: install_flang.bat  # [win]
     run_exports:
-      strong:                       # [unix]
+      strong:   # [unix]
         - libflang >={{ version }}  # [unix]
     requirements:
       build:
