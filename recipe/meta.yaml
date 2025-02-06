@@ -45,9 +45,7 @@ outputs:
       files:
         - hello_world.f90
       commands:
-        # on linux we point FC to the symlink; on windows, we point to the binary;
-        # the latter is still named "flang-new" instead of "flang" as of v19, see
-        # https://discourse.llvm.org/t/proposal-rename-flang-new-to-flang/69462
+        # on linux we point FC to the symlink; on windows, we point to the binary
         - $FC hello_world.f90       # [unix]
         - "%FC% hello_world.f90"    # [win]
         - ./a.out   # [unix]
