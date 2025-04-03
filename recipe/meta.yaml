@@ -1,13 +1,14 @@
-{% set version = "20.1.1" %}
+{% set version = "20.1.2" %}
 
 package:
   name: flang-activation
   version: {{ version }}
 
-# unused, but helpful so the bot creates updates automatically
 source:
-  url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/attestation.jsonl
-  sha256: 0d71098044492f11a9702c5ba2ec98ff152c50cc14d610c9080406b8ebb0aed5
+  # unused, but helpful so the bot creates updates automatically;
+  # we use the _signature_, which is tiny and thus much faster to download
+  url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/llvm-project-{{ version.replace(".rc", "-rc") }}.src.tar.xz.sig
+  sha256: 2072bd79df3e0d8289d8de56593f3dac9e722906e931dff70c8390de40cae279
 
 build:
   number: 0
