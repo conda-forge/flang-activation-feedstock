@@ -1,4 +1,4 @@
-{% set version = "19.1.7" %}
+{% set version = "20.1.1" %}
 
 package:
   name: flang-activation
@@ -6,8 +6,8 @@ package:
 
 # unused, but helpful so the bot creates updates automatically
 source:
-  url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/sources.jsonl
-  sha256: 55fdb8488e1dcebd8af9ce8e5aecea8345b33bc26a18a7657bcf46c2824162d4
+  url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/attestation.jsonl
+  sha256: 0d71098044492f11a9702c5ba2ec98ff152c50cc14d610c9080406b8ebb0aed5
 
 build:
   number: 0
@@ -45,9 +45,7 @@ outputs:
       files:
         - hello_world.f90
       commands:
-        # on linux we point FC to the symlink; on windows, we point to the binary;
-        # the latter is still named "flang-new" instead of "flang" as of v19, see
-        # https://discourse.llvm.org/t/proposal-rename-flang-new-to-flang/69462
+        # on linux we point FC to the symlink; on windows, we point to the binary
         - $FC hello_world.f90       # [unix]
         - "%FC% hello_world.f90"    # [win]
         - ./a.out   # [unix]

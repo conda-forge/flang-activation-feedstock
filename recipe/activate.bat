@@ -4,8 +4,7 @@ set "CONDA_BACKUP_LD=%LD%"
 set "CONDA_BACKUP_LDFLAGS=%LDFLAGS%"
 set "CONDA_BACKUP_AR=%AR%"
 
-:: flang 19 still uses "temporary" name
-set "FC=flang-new"
+set "FC=flang.exe"
 set "LD=lld-link.exe"
 set "AR=llvm-ar.exe"
 
