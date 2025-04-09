@@ -1,4 +1,4 @@
-{% set version = "20.1.2" %}
+{% set version = "21.0.0.dev1" %}
 
 package:
   name: flang-activation
@@ -7,8 +7,8 @@ package:
 # source:
   # unused, but helpful so the bot creates updates automatically;
   # we use the _signature_, which is tiny and thus much faster to download
-  url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/llvm-project-{{ version.replace(".rc", "-rc") }}.src.tar.xz.sig
-  sha256: 2072bd79df3e0d8289d8de56593f3dac9e722906e931dff70c8390de40cae279
+  # url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/llvm-project-{{ version.replace(".rc", "-rc") }}.src.tar.xz.sig
+  # sha256: 2072bd79df3e0d8289d8de56593f3dac9e722906e931dff70c8390de40cae279
 
 build:
   number: 0
@@ -21,10 +21,11 @@ outputs:
     # we don't cross-compile on windows -> no symlinks
     requirements:
       - flang ={{ version }}
+      - flang-rt_{{ cross_target_platform }} ={{ version }}
+      - compiler-rt_{{ cross_target_platform }} ={{ version }}
       - lld                     # [win]
       # for llvm-ar.exe
       - llvm-tools              # [win]
-      - compiler-rt_{{ cross_target_platform }} ={{ version }}
     test:
       commands:
         - {{ CBUILD }}-flang --version  # [unix]
@@ -34,8 +35,8 @@ outputs:
     script: install_flang.sh  # [unix]
     script: install_flang.bat  # [win]
     run_exports:
-      strong:   # [unix]
-        - libflang >={{ version }}  # [unix]
+      strong:                           # [unix]
+        - libflang-rt >={{ version }}   # [unix]
     requirements:
       build:
         - sed       # [unix]
