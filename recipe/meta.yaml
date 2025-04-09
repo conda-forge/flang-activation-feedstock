@@ -23,6 +23,7 @@ outputs:
       - flang ={{ version }}
       - flang-rt_{{ cross_target_platform }} ={{ version }}
       - compiler-rt_{{ cross_target_platform }} ={{ version }}
+      - libflang-rt             # [unix]
       - lld                     # [win]
       # for llvm-ar.exe
       - llvm-tools              # [win]
