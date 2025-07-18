@@ -21,10 +21,11 @@ outputs:
     # we don't cross-compile on windows -> no symlinks
     requirements:
       - flang ={{ version }}
+      - flang-rt_{{ cross_target_platform }} ={{ version }}
+      - compiler-rt_{{ cross_target_platform }} ={{ version }}
       - lld                     # [win]
       # for llvm-ar.exe
       - llvm-tools              # [win]
-      - compiler-rt_{{ cross_target_platform }} ={{ version }}
     test:
       commands:
         - {{ CBUILD }}-flang --version  # [unix]
@@ -34,8 +35,8 @@ outputs:
     script: install_flang.sh  # [unix]
     script: install_flang.bat  # [win]
     run_exports:
-      strong:   # [unix]
-        - libflang >={{ version }}  # [unix]
+      strong:                           # [unix]
+        - libflang-rt >={{ version }}   # [unix]
     requirements:
       build:
         - sed       # [unix]
