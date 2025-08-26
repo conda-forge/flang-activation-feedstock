@@ -1,4 +1,4 @@
-{% set version = "21.1.0.rc3" %}
+{% set version = "21.1.0" %}
 
 package:
   name: flang-activation
@@ -8,10 +8,10 @@ source:
   # unused, but helpful so the bot creates updates automatically;
   # we use the _signature_, which is tiny and thus much faster to download
   url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/llvm-project-{{ version.replace(".rc", "-rc") }}.src.tar.xz.sig
-  sha256: 35bcbe52140caecaf3cbe71d08d62fe8852034631248a595a063fb9d6513fe75
+  sha256: fd92e76b43b32b504de22fb948ea4c723aa6bbd44b9fe59aaca90e83a3ffcaed
 
 build:
-  number: 1
+  number: 0
   # intentionally only windows (main target) & linux (debuggability)
   skip: true  # [osx]
 
