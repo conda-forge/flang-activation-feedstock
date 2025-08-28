@@ -11,7 +11,7 @@ source:
   sha256: 35bcbe52140caecaf3cbe71d08d62fe8852034631248a595a063fb9d6513fe75
 
 build:
-  number: 0
+  number: 1
   # intentionally only windows (main target) & linux (debuggability)
   skip: true  # [osx]
 
@@ -47,12 +47,18 @@ outputs:
     test:
       files:
         - hello_world.f90
+        - sanitycheckf.f
       commands:
         # on linux we point FC to the symlink; on windows, we point to the binary
         - $FC hello_world.f90       # [unix]
         - "%FC% hello_world.f90"    # [win]
         - ./a.out   # [unix]
         - a.exe     # [win]
+        # as used by meson
+        - $FC sanitycheckf.f -o sanitycheckf $FFLAGS            # [unix]
+        - "%FC% sanitycheckf.f -o sanitycheckf.exe %FFLAGS%"    # [win]
+        - ./sanitycheckf    # [unix]
+        - sanitycheckf.exe  # [win]
 
 about:
   home: https://flang.llvm.org
