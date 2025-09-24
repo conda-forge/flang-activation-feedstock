@@ -1,4 +1,4 @@
-{% set version = "21.1.1" %}
+{% set version = "21.1.2" %}
 
 package:
   name: flang-activation
@@ -8,7 +8,7 @@ source:
   # unused, but helpful so the bot creates updates automatically;
   # we use the _signature_, which is tiny and thus much faster to download
   url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/llvm-project-{{ version.replace(".rc", "-rc") }}.src.tar.xz.sig
-  sha256: cd6a252dec884da1f619e86855d90ad2eb35f8fbd64a644a92ec5a92cedf4302
+  sha256: 236f48ab1065e4f76f4f51f50dd90b245d082b3a71802ada564fc7f7ad80c5f0
 
 build:
   number: 0
@@ -36,7 +36,7 @@ outputs:
     script: install_flang.sh  # [unix]
     script: install_flang.bat  # [win]
     run_exports:
-      strong:                           # [unix]
+      strong:   # [unix]
         - libflang-rt >={{ version }}   # [unix]
     requirements:
       build:
