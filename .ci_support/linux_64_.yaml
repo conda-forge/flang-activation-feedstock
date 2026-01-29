@@ -2,12 +2,10 @@ CBUILD:
 - x86_64-conda-linux-gnu
 CHOST:
 - x86_64-conda-linux-gnu
-cdt_name:
-- conda
 channel_sources:
-- conda-forge/label/llvm_rc,conda-forge
+- conda-forge
 channel_targets:
-- conda-forge llvm_rc
+- conda-forge main
 cross_target_platform:
 - linux-64
 docker_image:

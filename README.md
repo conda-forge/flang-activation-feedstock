@@ -63,14 +63,14 @@ Current release info
 Installing flang-activation
 ===========================
 
-Installing `flang-activation` from the `conda-forge/label/llvm_rc` channel can be achieved by adding `conda-forge/label/llvm_rc` to your channels with:
+Installing `flang-activation` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
-conda config --add channels conda-forge/label/llvm_rc
+conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge/label/llvm_rc` channel has been enabled, `flang_impl_linux-64, flang_impl_win-64, flang_linux-64, flang_win-64` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `flang_impl_linux-64, flang_impl_win-64, flang_linux-64, flang_win-64` can be installed with `conda`:
 
 ```
 conda install flang_impl_linux-64 flang_impl_win-64 flang_linux-64 flang_win-64
@@ -85,26 +85,26 @@ mamba install flang_impl_linux-64 flang_impl_win-64 flang_linux-64 flang_win-64
 It is possible to list all of the versions of `flang_impl_linux-64` available on your platform with `conda`:
 
 ```
-conda search flang_impl_linux-64 --channel conda-forge/label/llvm_rc
+conda search flang_impl_linux-64 --channel conda-forge
 ```
 
 or with `mamba`:
 
 ```
-mamba search flang_impl_linux-64 --channel conda-forge/label/llvm_rc
+mamba search flang_impl_linux-64 --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search flang_impl_linux-64 --channel conda-forge/label/llvm_rc
+mamba repoquery search flang_impl_linux-64 --channel conda-forge
 
 # List packages depending on `flang_impl_linux-64`:
-mamba repoquery whoneeds flang_impl_linux-64 --channel conda-forge/label/llvm_rc
+mamba repoquery whoneeds flang_impl_linux-64 --channel conda-forge
 
 # List dependencies of `flang_impl_linux-64`:
-mamba repoquery depends flang_impl_linux-64 --channel conda-forge/label/llvm_rc
+mamba repoquery depends flang_impl_linux-64 --channel conda-forge
 ```
 
 
@@ -129,12 +129,12 @@ it is possible to build and upload installable packages to the
 [conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
-To manage the continuous integration and simplify feedstock maintenance
+To manage the continuous integration and simplify feedstock maintenance,
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
-For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
+For more information, please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
@@ -161,7 +161,7 @@ merged, the recipe will be re-built and uploaded automatically to the
 everybody to install and use from the `conda-forge` channel.
 Note that all branches in the conda-forge/flang-activation-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
-on branches in forks and branches in the main repository should only be used to
+on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
