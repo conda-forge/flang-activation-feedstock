@@ -3,9 +3,9 @@ CBUILD:
 CHOST:
 - x86_64-conda-linux-gnu
 channel_sources:
-- conda-forge
+- conda-forge/label/llvm_rc,conda-forge
 channel_targets:
-- conda-forge main
+- conda-forge llvm_rc
 cross_target_platform:
 - linux-64
 docker_image:
