@@ -18,5 +18,5 @@ set "LDFLAGS=%LDFLAGS% -Wl,-defaultlib:%CONDA_PREFIX:\=/%/lib/clang/@MAJOR_VER@/
 if not "%CONDA_BUILD%" == "" (
     set "FFLAGS=%FFLAGS% -I%LIBRARY_INC%"
 ) else (
-    set "FFLAGS=%FFLAGS% -I%CONDA_PREFIX%\Library\include"
+    set "FFLAGS=%FFLAGS% -I%CONDA_PREFIX:\=/%/Library/include"
 )
