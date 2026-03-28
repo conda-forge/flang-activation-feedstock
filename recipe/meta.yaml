@@ -11,7 +11,7 @@ source:
   sha256: cb605632f17606799b8a3b76781e80ceeae5e2c7e7823823eff688557ce53a68
 
 build:
-  number: 0
+  number: 1
   # intentionally only windows (main target) & linux (debuggability)
   skip: true  # [osx]
 
