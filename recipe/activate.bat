@@ -13,10 +13,12 @@ set "FFLAGS=-D_CRT_SECURE_NO_WARNINGS -fms-runtime-lib=dll -fuse-ld=lld"
 set "LDFLAGS=%LDFLAGS% -Wl,-defaultlib:%CONDA_PREFIX:\=/%/lib/clang/@MAJOR_VER@/lib/windows/clang_rt.builtins-x86_64.lib"
 
 :: need to distinguish how we populate `-I` based on whether we're using conda build or not;
-:: LIBRARY_INC is not available if not, but we cannot use CONDA_PREFIX unconditionally either,
-:: as that points to the wrong environment (build instead of host) when using conda-build.
+:: if building packages, we want %PREFIX% (==host env.), otherwise %CONDA_PREFIX% (i.e. the
+:: regular user env; when CONDA_BUILD is set however, it correspond to the build env.).
+:: To avoid mixing forward slashes and backslashes, we normalize to `/`; for that purpose,
+:: avoid using nested env. vars like `LIBRARY_INC` := `%PREFIX%\Library\include`.
 if not "%CONDA_BUILD%" == "" (
-    set "FFLAGS=%FFLAGS% -I%LIBRARY_INC:\=/%"
+    set "FFLAGS=%FFLAGS% -I%PREFIX:\=/%/Library/include"
 ) else (
     set "FFLAGS=%FFLAGS% -I%CONDA_PREFIX:\=/%/Library/include"
 )
