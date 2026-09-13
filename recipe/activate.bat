@@ -10,7 +10,7 @@ set "AR=llvm-ar.exe"
 
 :: following https://github.com/conda-forge/clang-win-activation-feedstock/blob/main/recipe/activate-clang_win-64.bat
 set "FFLAGS=-D_CRT_SECURE_NO_WARNINGS -fms-runtime-lib=dll -fuse-ld=lld"
-set "LDFLAGS=%LDFLAGS% -Wl,-defaultlib:%CONDA_PREFIX:\=/%/lib/clang/@MAJOR_VER@/lib/windows/clang_rt.builtins-@TARGET_ARCH@.lib"
+set "LDFLAGS=%LDFLAGS% -Wl,/DEFAULTLIB:%CONDA_PREFIX:\=/%/lib/clang/@MAJOR_VER@/lib/windows/clang_rt.builtins-@TARGET_ARCH@.lib"
 
 :: need to distinguish how we populate `-I` based on whether we're using conda build or not;
 :: if building packages, we want %PREFIX% (==host env.), otherwise %CONDA_PREFIX% (i.e. the
