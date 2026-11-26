@@ -1,3 +1,7 @@
+bot:
+  abi_migration_branches:
+  - 22.x
+  - 21.x
 github:
   branch_name: main
   tooling_branch_name: main
